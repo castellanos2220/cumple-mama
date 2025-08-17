@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Feliz Cumpleaños Mamá</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      background: linear-gradient(135deg, #ffdde1, #ee9ca7);
+      color: #333;
+      text-align: center;
+      overflow-x: hidden;
+    }
+
+    header {
+      background: #ff4e50;
+      color: white;
+      padding: 30px 20px;
+      font-size: 2.5em;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      position: relative;
+      z-index: 2;
+    }
+
+    h1 {
+      margin: 0;
+      animation: bounce 2s infinite;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 20px;
+      z-index: 2;
+      position: relative;
+    }
+
+    .gallery img {
+      margin: 10px;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      width: 280px;
+      height: 350px;
+      object-fit: cover;
+      transition: transform 0.3s;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.1);
+    }
+
+    .message {
+      background: white;
+      margin: 40px auto;
+      padding: 20px;
+      border-radius: 20px;
+      max-width: 600px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      font-size: 1.3em;
+      position: relative;
+      z-index: 2;
+    }
+
+    footer {
+      background: #ff4e50;
+      color: white;
+      padding: 15px;
+      margin-top: 40px;
+      position: relative;
+      z-index: 2;
+    }
+
+    /* Animación globos 🎈 */
+    .balloon {
+      position: fixed;
+      top: -150px;
+      width: 60px;
+      height: 80px;
+      background: red;
+      border-radius: 50% 50% 50% 50%;
+      animation: fall 8s linear infinite;
+      z-index: 1;
+    }
+
+    .balloon::after {
+      content: '';
+      position: absolute;
+      bottom: -20px;
+      left: 50%;
+      width: 2px;
+      height: 25px;
+      background: #555;
+    }
+
+    @keyframes fall {
+      0% { transform: translateY(-150px) rotate(0deg); opacity: 1; }
+      100% { transform: translateY(110vh) rotate(360deg); opacity: 0.7; }
+    }
+
+    /* ✅ Ajustes para celulares */
+    @media (max-width: 768px) {
+      header {
+        font-size: 1.8em;
+        padding: 20px 10px;
+      }
+
+      .gallery {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .gallery img {
+        width: 90%;
+        height: auto;
+      }
+
+      .message {
+        font-size: 1.1em;
+        margin: 20px;
+        padding: 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>🎉 ¡Feliz Cumpleaños Mamá! 🎂</h1>
+  </header>
+
+  <div class="gallery">
+    <img src="foto1.jpg" alt="Foto mamá e hijo">
+    <img src="foto2.jpg" alt="Foto mamá e hijo de noche">
+    <img src="foto3.jpg" alt="Foto mamá feliz">
+  </div>
+
+  <div class="message">
+    🌹 Querida mamá, gracias por tu amor infinito, tu fuerza y tu alegría.  
+    Hoy celebramos tu vida, tu luz y lo afortunados que somos de tenerte.  
+    Que este cumpleaños esté lleno de sonrisas, abrazos y sueños cumplidos. 💕  
+    ¡Te amo mucho mamá! ❤️
+  </div>
+
+  <footer>
+    Con todo mi cariño 💖 – Tu hijo
+  </footer>
+
+  <!-- Globos animados -->
+  <script>
+    function createBalloon() {
+      const balloon = document.createElement("div");
+      balloon.classList.add("balloon");
+      document.body.appendChild(balloon);
+
+      // Color aleatorio
+      const colors = ["#ff4e50", "#ffb347", "#7ed6df", "#c56cf0", "#badc58", "#f9ca24"];
+      balloon.style.background = colors[Math.floor(Math.random() * colors.length)];
+
+      // Posición aleatoria
+      balloon.style.left = Math.random() * window.innerWidth + "px";
+
+      // Duración aleatoria
+      balloon.style.animationDuration = (6 + Math.random() * 5) + "s";
+
+      setTimeout(() => {
+        balloon.remove();
+      }, 11000);
+    }
+
+    setInterval(createBalloon, 800);
+  </script>
+</body>
+</html>
